@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correo Electrónico</title>
+    <link rel="stylesheet" href="stylesheets/style_index.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo_admisend.png" alt="Logo de la aplicación">
+        </div>
+        <div class="search-bar">
+            <input type="search" placeholder="Buscar...">
+            <button type="submit">Buscar</button>
+        </div>
+        <div class="user-info">
+            <span>Bienvenido, <strong>Juan Pérez</strong></span>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul>
+            <li><button class="btn-send">Enviar mensaje</button></li>
+            <li><a href="#" class="active">Recibidos</a></li>
+            <li><a href="#">Enviados</a></li>
+        </ul>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <table class="mail-table">
+            <thead>
+                <tr>
+                    <th>Remitente</th>
+                    <th>Asunto</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>juanperez@example.com</td>
+                    <td>Asunto del correo</td>
+                    <td>10/02/2023 14:30</td>
+                </tr>
+                <tr>
+                    <td>marialopez@example.com</td>
+                    <td>Otro asunto</td>
+                    <td>09/02/2023 10:15</td>
+                </tr>
+                <!-- Más filas de correos aquí -->
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

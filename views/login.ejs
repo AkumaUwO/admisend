@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio de sesión responsive</title>
+  <!-- FontAwesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="stylesheets/style_login.css" />
+</head>
+
+<body>
+    <img src="images/logo_admisend.png" alt="" id="logo">
+  <div class="container">
+
+    <div class="login-box">
+
+      <!-- Login Form -->
+      <form action="">
+        <h2>Inicio de sesión</h2>
+        <div class="input-box">
+          <span class="icon"><i class="fa-solid fa-user"></i></span>
+          <input type="text" required placeholder="usuario" />
+        </div>
+        <div class="input-box">
+          <span class="icon"><i class="fa-solid fa-lock"></i></span>
+          <span id="togglePassword" class="icon-visibility"><i class="fa-solid fa-eye" onclick="togglePasswordVisibility()"></i></span>
+          </span>
+          <input type="password" id="password" placeholder="contraseña" required />
+        </div>
+        <div class="remember-forget">
+          <label><input type="checkbox" />Recordarme</label>
+          <a href="#">Olvide mi contraseña</a>
+        </div>
+        <button type="submit">Iniciar Sesión</button>
+        <div class="register-link">
+          <label for="register-link">¿No tienes una cuenta?</label>
+          <a href="#">Clic aquí para crear una!</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+      const passwordInput = document.getElementById('password');
+      const eyeIcon = document.getElementById('togglePassword');
+
+        passwordInput.addEventListener('input', () => {
+            eyeIcon.style.display = passwordInput.value ? 'inline-block' : 'none';
+        });
+    function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('togglePassword').querySelector('i');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+    }
+</script>
+</body>
+
+</html>

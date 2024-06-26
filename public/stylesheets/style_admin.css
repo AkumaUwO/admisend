@@ -1,0 +1,98 @@
+/* CSS (en styles.css) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 1em;
+}
+
+.nav-links {
+    margin-left: auto;
+}
+
+.btn-logout {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+.sidebar {
+    background-color: #f0f0f0;
+    padding: 1em;
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 1em;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #333;
+}
+
+.sidebar a.active {
+    font-weight: bold;
+}
+
+.content {
+    margin-left: 300px;
+    padding: 1em;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 0.5em;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+.btn-edit,.btn-delete {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.btn-delete {
+    background-color: #FF0000;
+    color: #fff;
+}

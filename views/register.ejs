@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio de sesión responsive</title>
+  <!-- FontAwesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="stylesheets/style_register.css" />
+</head>
+
+<body>
+    <img src="images/logo_admisend.png" alt="" id="logo">
+  <div class="container">
+
+    <div class="login-box">
+
+      <!-- Login Form -->
+      <form action="">
+        <h2>Registro</h2>
+        <div class="input-box">
+          <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+          <input type="text" required placeholder="nombre completo" />
+        </div>
+        <div class="input-box">
+            <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+            <input type="text" required placeholder="numero de cedula" />
+          </div>
+        <div class="input-box">
+            <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+            <input type="text" required placeholder="usuario" />
+          </div>
+        <div class="input-box">
+          <span class="icon"><i class="fa-solid fa-lock"></i></span>
+          <span id="togglePassword" class="icon-visibility"><i class="fa-solid fa-eye" onclick="togglePasswordVisibility()"></i></span>
+          </span>
+          <input type="password" id="password" placeholder="contraseña" required />
+        </div>
+        <div class="input-box">
+            <span class="icon"><i class="fa-solid fa-lock"></i></span>
+            <span id="togglePassword" class="icon-visibility"><i class="fa-solid fa-eye" onclick="togglePasswordVisibility()"></i></span>
+            </span>
+            <input type="password" id="password" placeholder="confirmar contraseña" required />
+          </div>
+        <button type="submit">Registrarse</button>
+        <div class="register-link">
+          <label for="register-link">¿Ya tienes cuenta?</label>
+          <a href="#">Clic aquí para iniciar sesión!</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+      const passwordInput = document.getElementById('password');
+      const eyeIcon = document.getElementById('togglePassword');
+
+        passwordInput.addEventListener('input', () => {
+            eyeIcon.style.display = passwordInput.value ? 'inline-block' : 'none';
+        });
+    function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('togglePassword').querySelector('i');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+    }
+</script>
+</body>
+
+</html>
