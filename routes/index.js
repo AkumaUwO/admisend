@@ -1,6 +1,13 @@
 var express = require('express');
 var router = express.Router();
 const mysql = require('mysql');
+const session = require('express-session');
+
+router.use(session({
+    secret: '4jero3p4itjgJDL4MFI4skd', // Cambia esto por una clave segura
+    resave: false,
+    saveUninitialized: true
+}));
 
 /*Creando conexion a la base de datos*/
 
@@ -22,17 +29,6 @@ function connect(){
     console.log('Conexión exitosa');
   });
 }
-
-/*Finalizando conexion con la base de datos*/
-function disconnect(){
-  connection.end();
-}
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
 /* GET admin page. */
 router.get('/admin', function(req, res, next) {
   res.render('admin');
@@ -45,20 +41,40 @@ router.get('/login', function(req, res, next) {
 
 /* Comprobar y validar inicio de sesión al enviar el formulario */
 router.post('/login', (req, res, next) => {
-  connect();
-  connection.query('SELECT * FROM usuarios', (error, results, fields) => {
-    if (error) {
-        console.error('Error en la consulta:', error);
-        return;
-    }
-    console.log('Resultados:', results);
-  });
-  disconnect();
 
+  const { user, password } = req.body;
+  console.log(user, " " ,password)
+  connect();
+  connection.query('SELECT * FROM usuarios WHERE usuario = ? and contraseña = ?', [user, password], (error, results, fields) => {
+    if (error) {
+      console.error('Error en la consulta:', error);
+    } else {
+      if (results.length === 0) {  
+        console.log('Usuario no encontrado');
+        res.redirect('/login');
+
+      } else {
+        console.log('Usuario encontrado:', results[0]);
+        req.session.nombre = results[0].nombre_completo;
+        res.redirect('/');
+      }
+    }
+  });
 });
 
 /* GET register page. */
 router.get('/register', function(req, res, next) {
   res.render('register');
+});
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  const nombre = req.session.nombre; // Lee el valor de la sesión
+  res.render('index', { nombre: nombre });
+});
+
+router.get('/logout', function(req, res, next) {
+  req.session.destroy(); // Elimina la sesión
+  res.redirect('/login');
 });
 module.exports = router;
