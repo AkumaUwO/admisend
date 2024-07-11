@@ -538,7 +538,6 @@ router.get('/madmin:id', function(req, res, next) {
 router.get('/created', function(req, res, next) {
   var nombre = req.session.nombre; // Lee el valor de la sesión
 
-  console.log(id_mensaje_actual);
   if(req.session.rolID == 1){
     if(nombre === undefined){
 
