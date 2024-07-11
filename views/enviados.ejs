@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admisend - Inicio</title>
+    <title>Salida - Admisend</title>
     <link rel="stylesheet" href="stylesheets/style_index.css">
 </head>
 <body>
@@ -12,6 +12,12 @@
         <div class="logo">
             <img src="images/logo_admisend.png" alt="Logo de la aplicación">
         </div>
+        <!--  
+        <div class="search-bar">
+            <input type="search" placeholder="Buscar...">
+            <button type="submit">Buscar</button>
+        </div>
+        -->
         <div class="user-info">
             <span>Bienvenido, <strong><%= nombre %></strong></span>
         </div>
@@ -24,8 +30,8 @@
     <aside class="sidebar">
         <ul>
             <li><a href="/send"><button class="btn-send">Enviar mensaje</button></a></li>
-            <li><a href="#" class="active">Recibidos</a></li>
-            <li><a href="/enviados">Enviados</a></li>
+            <li><a href="/">Recibidos</a></li>
+            <li><a href="#" class="active">Enviados</a></li>
         </ul>
     </aside>
 
@@ -49,8 +55,6 @@
                         <td><a href="/msg<%= resultado.id_mensaje %>"><%= resultado.asunto %></a></td>
                         <td><a href="/msg<%= resultado.id_mensaje %>"><%= resultado.nro_memo %></a></td>
                         <td><a href="/msg<%= resultado.id_mensaje %>"><%= resultado.fecha %></a></td>
-                      
- 
                       </tr>
                     <% }) %>
                   <% } else { %>

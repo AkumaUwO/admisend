@@ -1,0 +1,81 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administrador</title>
+    <link rel="stylesheet" href="/stylesheets/style_admin.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+                <img src="/images/logo_admisend.png" alt="Logo de la aplicación">
+        </div>
+        <div class="nav-links">
+            <a href="/logout" class="btn-logout">Cerrar sesión</a>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul>
+            <li><h1 id="adminH1">Panel de Administrador</h1></li>
+            <li><a href="/admin">Departamentos</a></li>
+            <li><a href="/adminm"  class="active">Mensajes</a></li>
+            <li><a href="/adminu">Usuarios</a></li>
+            <li><a href="/adminr">Roles</a></li>
+        </ul>
+    </aside>
+
+    <!-- Contenido -->
+    <main class="content">
+        <h1>Mensajes</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Mensaje</th>
+                    <th>Remitente</th>
+                    <th>Asunto</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (resultado != undefined) { %>
+                    <% resultado.forEach(resultado => { %>
+                        <tr>
+                            <td><%= resultado.id_mensaje %></td>
+                            <td><%= resultado.nombre %></td>
+                            <td><%= resultado.asunto %></td>
+                            <td>
+                                <a href="/madmin<%= resultado.id_mensaje %>" class="btn-edit">Ver mensaje</a>
+                                <button class="btn-delete" onclick="eliminar('<%= resultado.id_mensaje %>')">Eliminar</button>
+                            </td>
+                        </tr>
+                        
+                    <% }) %>
+                  <% } else { %>
+
+                  <% } %>
+
+                <!-- Más filas de datos aquí -->
+            </tbody>
+        </table>
+    </main>
+    <script>
+        function eliminar(parametro) {
+        // Muestra un cuadro de diálogo de confirmación
+            const confirmacion = confirm('¿Estás seguro que deseas eliminar este elemento?');
+    
+            if (confirmacion) {
+            // Redirige a la URL con el parámetro
+                window.location.href = '/deletem' + parametro;
+            } else {
+            // No hace nada si no se confirma
+            // Puedes agregar más lógica aquí si es necesario
+            }
+        }
+        </script>
+</body>
+</html>

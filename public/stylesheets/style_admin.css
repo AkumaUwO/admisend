@@ -15,7 +15,11 @@ body {
 }
 
 .logo {
-    margin-right: 1em;
+    margin-right: 20px;
+}
+
+.logo img{
+    width: 120px;
 }
 
 .nav-links {
@@ -30,14 +34,19 @@ body {
     cursor: pointer;
 }
 
+#adminH1{
+    Color: #fff;
+}
 .sidebar {
-    background-color: #f0f0f0;
+
+    background-color: #333;
     padding: 1em;
     width: 200px;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
+    margin-top: 130px;
 }
 
 .sidebar ul {
@@ -52,7 +61,7 @@ body {
 
 .sidebar a {
     text-decoration: none;
-    color: #333;
+    color: #fff;
 }
 
 .sidebar a.active {
@@ -96,3 +105,90 @@ th {
     background-color: #FF0000;
     color: #fff;
 }
+
+.btn-edit:hover {
+    background-color: #348637;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background-color: #c90808;
+    color: #fff;
+}
+
+ /* Estilos para el formulario */
+ form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.input-box {
+    margin-bottom: 15px;
+}
+label {
+    display: block;
+    font-weight: bold;
+}
+input[type="number"],
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.btn-create{
+    padding: 0.5em 1em;
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.containerMensaje{
+    border: 2px solid #000;
+    border-radius: 10px;
+    margin: 5%;
+}
+.nombre-remitente {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .asunto {
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+  }
+  
+  .nro-memo {
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+  }
+  
+  .mensaje {
+    text-align: justify;
+    margin:10%;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #000;
+  }
+  

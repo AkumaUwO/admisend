@@ -1,0 +1,85 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administrador</title>
+    <link rel="stylesheet" href="/stylesheets/style_admin.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+                <img src="/images/logo_admisend.png" alt="Logo de la aplicación">
+        </div>
+        <div class="nav-links">
+            <a href="/logout" class="btn-logout">Cerrar sesión</a>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul>
+            <li><h1 id="adminH1">Panel de Administrador</h1></li>
+            <li><a href="/admin" >Departamentos</a></li>
+            <li><a href="/adminm">Mensajes</a></li>
+            <li><a href="/adminu" class="active">Usuarios</a></li>
+            <li><a href="/adminr">Roles</a></li>
+        </ul>
+    </aside>
+
+    <!-- Contenido -->
+    <main class="content">
+        <h1>Usuarios</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Usuario</th>
+                    <th>Departamento</th>
+                    <th>Nombre Completo</th>
+                    <th>Cedula</th>
+                    <th>Usuario</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (resultado != undefined) { %>
+                    <% resultado.forEach(resultado => { %>
+                        <tr>
+                            <td><%= resultado.id_usuario %></td>
+                            <td><%= resultado.nombre_departamento %></td>
+                            <td><%= resultado.nombre_completo %></td>
+                            <td><%= resultado.cedula %></td>
+                            <td><%= resultado.usuario %></td>
+                            
+                            <td>
+                                <button class="btn-delete" onclick="eliminar('<%= resultado.id_usuario %>')">Eliminar</button>
+                            </td>
+                        </tr>
+                        
+                    <% }) %>
+                  <% } else { %>
+
+                  <% } %>
+
+                <!-- Más filas de datos aquí -->
+            </tbody>
+        </table>
+    </main>
+    <script>
+        function eliminar(parametro) {
+        // Muestra un cuadro de diálogo de confirmación
+            const confirmacion = confirm('¿Estás seguro que deseas eliminar este elemento?');
+    
+            if (confirmacion) {
+            // Redirige a la URL con el parámetro
+                window.location.href = '/deleteu' + parametro;
+            } else {
+            // No hace nada si no se confirma
+            // Puedes agregar más lógica aquí si es necesario
+            }
+        }
+        </script>
+</body>
+</html>

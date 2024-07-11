@@ -1,0 +1,51 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administrador</title>
+    <link rel="stylesheet" href="stylesheets/style_admin.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+                <img src="images/logo_admisend.png" alt="Logo de la aplicación">
+        </div>
+        <div class="nav-links">
+            <a href="/logout" class="btn-logout">Cerrar sesión</a>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul>
+            <li><h1 id="adminH1">Panel de Administrador</h1></li>
+            <li><a href="/admin" class="active">Departamentos</a></li>
+            <li><a href="/adminm">Mensajes</a></li>
+            <li><a href="/adminu">Usuarios</a></li>
+            <li><a href="/adminr">Roles</a></li>
+        </ul>
+    </aside>
+
+    <!-- Contenido -->
+    <main class="content">
+        <form action="" method="post">
+            <h2>Editar departamento</h2>
+            <div class="input-box">
+                <label for="asunto">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" value="<%= resultado[0].nombre %>"/>
+            </div>
+            <div class="input-box">
+                <label for="asunto">Funcion:</label>
+                <input type="text" id="funcion" name="funcion" value="<%= resultado[0].funcion %>"/>
+            </div>
+            <div class="input-box">
+
+            </div>
+            <button type="submit">Guardar cambios</button>
+          </form>
+    </main>
+</body>
+</html>

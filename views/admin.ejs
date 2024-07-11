@@ -5,65 +5,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administrador</title>
-    <link rel="stylesheet" href="stylesheets/style_admin.css">
+    <link rel="stylesheet" href="/stylesheets/style_admin.css">
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">
-            <img src="logo.png" alt="Logo de la aplicación">
+                <img src="/images/logo_admisend.png" alt="Logo de la aplicación">
         </div>
         <div class="nav-links">
-            <a href="#" class="btn-logout">Cerrar sesión</a>
+            <a href="/logout" class="btn-logout">Cerrar sesión</a>
         </div>
     </nav>
 
     <!-- Sidebar -->
     <aside class="sidebar">
         <ul>
-            <li><a href="#" class="active">Usuarios</a></li>
-            <li><a href="#">Mensajes</a></li>
-            <li><a href="#">Departamentos</a></li>
+            <li><h1 id="adminH1">Panel de Administrador</h1></li>
+            <li><a href="/admin" class="active">Departamentos</a></li>
+            <li><a href="/adminm">Mensajes</a></li>
+            <li><a href="/adminu">Usuarios</a></li>
+            <li><a href="/adminr">Roles</a></li>
         </ul>
     </aside>
 
     <!-- Contenido -->
     <main class="content">
-        <h1>Usuarios</h1>
+        <h1>Departamentos</h1>
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>ID Departamento</th>
                     <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Email</th>
+                    <th>Funcion</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>johndoe@example.com</td>
-                    <td>
-                        <a href="#" class="btn-edit">Editar</a>
-                        <a href="#" class="btn-delete">Eliminar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jane</td>
-                    <td>Doe</td>
-                    <td>janedoe@example.com</td>
-                    <td>
-                        <a href="#" class="btn-edit">Editar</a>
-                        <a href="#" class="btn-delete">Eliminar</a>
-                    </td>
-                </tr>
+                <% if (resultado != undefined) { %>
+                    <% resultado.forEach(resultado => { %>
+                        <tr>
+                            <td><%= resultado.id_departamento %></td>
+                            <td><%= resultado.nombre %></td>
+                            <td><%= resultado.funcion %></td>
+                            <td>
+                                <button class="btn-edit" onclick="editar('<%= resultado.id_departamento %>')">Editar</button>
+                                <button class="btn-delete" onclick="eliminar('<%= resultado.id_departamento %>')">Eliminar</button>
+                            </td>
+                        </tr>
+                        
+                    <% }) %>
+                  <% } else { %>
+
+                  <% } %>
+
                 <!-- Más filas de datos aquí -->
             </tbody>
         </table>
+
+        <a href="/created" class="btn-create">Agregar departamento</a>
     </main>
+    <script>
+        function eliminar(parametro) {
+        // Muestra un cuadro de diálogo de confirmación
+            const confirmacion = confirm('¿Estás seguro que deseas eliminar este elemento?');
+    
+            if (confirmacion) {
+            // Redirige a la URL con el parámetro
+                window.location.href = '/deleted' + parametro;
+            } else {
+            // No hace nada si no se confirma
+            // Puedes agregar más lógica aquí si es necesario
+            }
+        }
+    
+        function editar(parametro) {
+        // Muestra un cuadro de diálogo de confirmación
+            const confirmacion = confirm('¿Deseas editar este elemento?');
+    
+            if (confirmacion) {
+            // Redirige a la URL con el parámetro
+                window.location.href = '/editd' + parametro;
+            } else {
+            // No hace nada si no se confirma
+            // Puedes agregar más lógica aquí si es necesario
+            }
+        }
+        </script>
 </body>
 </html>

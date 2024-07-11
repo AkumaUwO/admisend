@@ -12,6 +12,12 @@
         <div class="logo">
             <img src="images/logo_admisend.png" alt="Logo de la aplicación">
         </div>
+        <div class="search-bar">
+            <form id="myForm">
+                <input type="search" id="searchInput" placeholder="Buscar...">
+                <button id="busqueda" type="submit">Buscar</button>
+            </form>
+        </div>
         <div class="user-info">
             <span>Bienvenido, <strong><%= nombre %></strong></span>
         </div>
@@ -63,5 +69,17 @@
             </tbody>
         </table>
     </main>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Evita que el formulario se envíe normalmente
+
+            const searchValue = document.getElementById('searchInput').value;
+            const redirectUrl = '/search' + encodeURIComponent(searchValue);
+
+            // Redirige al usuario a la página con la URL construida
+            window.location.href = redirectUrl;
+        });
+    </script>
 </body>
 </html>

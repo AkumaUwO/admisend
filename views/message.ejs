@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista de Mensaje</title>
+    <link rel="stylesheet" href="stylesheets/style_index.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo_admisend.png" alt="Logo de la aplicación">
+        </div>
+        <div class="user-info">
+            <span>Bienvenido, <strong><%= nombre %></strong></span>
+        </div>
+        <div class="user-info">
+            <span><a href="/logout" id="logout">Cerrar Sesión</a></span>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="/send"><button class="btn-send">Enviar mensaje</button></a></li>
+            <li><a href="/" class="active">Recibidos</a></li>
+            <li><a href="/enviados">Enviados</a></li>
+        </ul>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <div class="containerMensaje">
+            <h2 class="nombre-remitente"><b></b>Remitente: <%= resultado[0].nombre %></h2>
+            <h2 class="asunto"><b>Asunto: </b><%= resultado[0].asunto %></h2>
+            <h2 class="nro-memo"><b>Numero de memo:</b> <%= resultado[0].nro_memo %></h2>
+            <p class="mensaje"><b>Mensaje:</b> <%= resultado[0].mensaje %></p>        
+        </div>
+
+    </main>
+</body>
+</html>

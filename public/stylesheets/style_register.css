@@ -32,7 +32,7 @@ body{
 .container .login-box {
   position: relative;
   width: 450px;
-  height: 740px;
+  height: 880px;
   background-color: transparent;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
@@ -173,4 +173,26 @@ body{
     height: 100vh;
     border: none;
   }
+}
+
+.container-alert {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.alert {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.alert p {
+  margin: 0;
+  color: red;
+  font-weight: bold;
 }

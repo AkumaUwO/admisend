@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inicio de sesión responsive</title>
+  <title>Registro - Admisend</title>
   <!-- FontAwesome CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <!-- Custom CSS -->
@@ -18,36 +18,58 @@
     <div class="login-box">
 
       <!-- Login Form -->
-      <form action="">
+      <form action="" method="post">
+        <% if (mensaje != undefined || mensaje != "") { %>
+          <div class="container-alert">
+            <div class="alert">
+              <p><%= mensaje %></p>
+            </div>
+          </div>
+        <% } %>
         <h2>Registro</h2>
         <div class="input-box">
           <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-          <input type="text" required placeholder="nombre completo" />
+          <input type="text" id="nombre" name="nombre"  required placeholder="nombre completo" />
+          
         </div>
         <div class="input-box">
             <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-            <input type="text" required placeholder="numero de cedula" />
+            <input type="number" id="cedula" name="cedula" required placeholder="numero de cedula" />
           </div>
         <div class="input-box">
             <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-            <input type="text" required placeholder="usuario" />
+            <input type="text" id="usuario" name="usuario" placeholder="usuario" />
+          </div>
+          <div class="input-box">
+            <span>Departamento</span>
+            <select id="departamento" name="departamento" required>
+              <option value="" selected>Seleccione un departamento</option>
+
+              <% if (resultado != undefined) { %>
+                  <% resultado.forEach(resultado => { %>
+                  <option value="<%= resultado.id_departamento %>"><%= resultado.nombre %></option>
+                  <% }) %>
+                <% } else { %>
+                  <option value="1">Por favor agregue departamentos</option>
+                <% } %>
+          </select>
           </div>
         <div class="input-box">
           <span class="icon"><i class="fa-solid fa-lock"></i></span>
           <span id="togglePassword" class="icon-visibility"><i class="fa-solid fa-eye" onclick="togglePasswordVisibility()"></i></span>
           </span>
-          <input type="password" id="password" placeholder="contraseña" required />
+          <input id="password" name="password" type="password" id="password" placeholder="contraseña" required />
         </div>
         <div class="input-box">
             <span class="icon"><i class="fa-solid fa-lock"></i></span>
             <span id="togglePassword" class="icon-visibility"><i class="fa-solid fa-eye" onclick="togglePasswordVisibility()"></i></span>
             </span>
-            <input type="password" id="password" placeholder="confirmar contraseña" required />
+            <input type="password" id="passwordc" name="passwordc" placeholder="confirmar contraseña" required />
           </div>
         <button type="submit">Registrarse</button>
         <div class="register-link">
           <label for="register-link">¿Ya tienes cuenta?</label>
-          <a href="#">Clic aquí para iniciar sesión!</a>
+          <a href="/">Clic aquí para iniciar sesión!</a>
         </div>
       </form>
     </div>
