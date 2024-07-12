@@ -115,7 +115,7 @@ router.get('/adminu', function(req, res, next) {
       } else {
         if (results.length === 0) {  
           console.log('Departamentos no encontrados');
-          res.render('adminu', { resultado: results});
+          res.render('admin_users', { resultado: results});
   
         } else {
           console.log('Departamentos encontrados:', results);
@@ -557,7 +557,6 @@ router.post('/created', function(req, res, next) {
   var nombreu = req.session.nombre; // Lee el valor de la sesión
   const { nombre, funcion} = req.body;
 
-  console.log(id_mensaje_actual);
   if(req.session.rolID == 1){
     if(nombreu === undefined){
 
